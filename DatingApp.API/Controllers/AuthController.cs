@@ -10,7 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace DatingApp.API.Controllers {
+namespace DatingApp.API.Controllers 
+{
     [Route ("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase 
@@ -26,11 +27,7 @@ namespace DatingApp.API.Controllers {
         [HttpPost ("register")]
         public async Task<IActionResult> Register (UserForRegisterDto dto) 
         {
-            // validate request
-            if (!ModelState.IsValid)
-                return BadRequest (ModelState);
-
-            dto.Username = dto.Username.ToLower ();
+            dto.Username = dto.Username.ToLower();
 
             if (await _repo.UserExists (dto.Username))
                 return BadRequest ("Username is already taken");
