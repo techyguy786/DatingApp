@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace DatingApp.API.Controllers 
+namespace DatingApp.API.Controllers
 {
     [Route ("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase 
+    public class AuthController: ControllerBase
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
