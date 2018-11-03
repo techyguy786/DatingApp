@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class MemberEditComponent implements OnInit {
 
   user: User;
+  photoUrl: string;
   // on changing route: means you fill the form and without saving form, trying
   // to leave this route and moving to some other place in application.
   @ViewChild('editForm') editForm: NgForm;
@@ -36,6 +37,9 @@ export class MemberEditComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.user = data['user'];
+    });
+    this.authService.currentPhotoUrl.subscribe(photoUrl => {
+      this.photoUrl = photoUrl;
     });
   }
 
