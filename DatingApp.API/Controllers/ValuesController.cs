@@ -13,7 +13,6 @@ namespace DatingApp.API.Controllers
     [Route ("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase {
-
         private readonly ValuesService _service;
 
         public ValuesController (ValuesService service) {
