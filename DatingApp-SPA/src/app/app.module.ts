@@ -1,3 +1,4 @@
+import { TimeAgoPipe } from 'time-ago-pipe';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -47,7 +48,8 @@ export function tokenGetter() {
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      TimeAgoPipe
    ],
    imports: [
       BrowserModule,
