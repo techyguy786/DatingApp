@@ -33,6 +33,13 @@ namespace DatingApp.API.Helpers
             CreateMap<UserForRegisterDto, User>();
             // Now it will work in both directions
             CreateMap<MessageForCreationDto, Message>().ReverseMap();
+            CreateMap<Message, MessageToReturnDto>()
+                .ForMember(m => m.SenderPhotoUrl, opt => {
+                    opt.MapFrom(u => u.Sender.Photos.FirstOrDefault(p => p.IsMain).Url);
+                })
+                .ForMember(m => m.RecipientPhotoUrl, opt => {
+                    opt.MapFrom(u => u.Recipient.Photos.FirstOrDefault(p => p.IsMain).Url);
+                });
         }
     }
 }
