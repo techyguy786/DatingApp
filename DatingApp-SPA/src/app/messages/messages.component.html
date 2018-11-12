@@ -41,7 +41,12 @@
         </td>
         <td>{{message.messageSent | timeAgo}}</td>
         <td>
-          <button class="btn btn-danger">Delete</button>
+          <!-- Here we've a (tr) containing 4 (tds). And on clicking Delete
+          Button it is navigating to the route which we've applied on tr. But
+          we don't want this behavior on Delete button click. So, -->
+          <button class="btn btn-danger" 
+          (click)="$event.stopPropagation()"
+          (click)="deleteMessage(message.id)">Delete</button>
         </td>
       </tr>
     </table>
