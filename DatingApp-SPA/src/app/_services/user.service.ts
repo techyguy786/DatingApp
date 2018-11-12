@@ -122,4 +122,11 @@ export class UserService {
   deleteMessage(id: number, userId: number) {
     return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id, {});
   }
+
+  markAsRead(userId: number, messageId: number) {
+    // Because we're not sending back here. We just implementing mark as read operation.
+    // So subscribing here.
+    this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + messageId + '/read', {})
+      .subscribe();
+  }
 }
